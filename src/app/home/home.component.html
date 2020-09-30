@@ -1,0 +1,39 @@
+<h1>Personas API</h1>
+
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Documento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of personas">
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.edad}}</td>
+                <td>{{persona.sexo}}</td>
+                <td>{{persona.documentacion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="mt- 5">
+    <form (ngSubmit)="onSubmit(formulario)" #formulario="ngForm">
+        <div class="form-group">
+            <div class="col-5">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control m-1" name="nombre" [class.is-invalid]="nombre.invalid && nombre.touched" [(ngModel)]="nombrePersona" required #nombre="ngModel">
+
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Documento</label>
+                    <input type="file" class="form-control-file" (change)="onChange($event)" required>
+                </div>
+                <button type="submit" class="btn btn-primary  m-1">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>

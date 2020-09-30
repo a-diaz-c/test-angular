@@ -1,0 +1,21 @@
+<h1>Local Storage</h1>
+<div class="alert alert-danger" role="alert" *ngIf="personas.length == 0">
+    El local storage esta vacio
+</div>
+
+<div class="container-fluid" *ngIf="personas.length > 0">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Documento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of personas">
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.documento}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
